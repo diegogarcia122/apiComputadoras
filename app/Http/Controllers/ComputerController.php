@@ -22,7 +22,14 @@ class ComputerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $computers = Computer::create($request->all());
+            return response()->json(['status' => 'success', 
+            'message' => 'Computadora creada exitosamente', 
+            'data' => $computers]);
+        }catch(\Exception $e){
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -30,7 +37,14 @@ class ComputerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try{
+            $computers = Computer::findOrFail($id);
+            return response()-> json(['status' => 'success',
+            'data' => $computers]);
+
+        }catch(\Exception $e) {
+            return response() -> json(['status' => 'error', 'message' => $e -> getMessage()]);
+        }
     }
 
     /**

@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Computer;
-use App\Http\Controllers\ComputerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +16,3 @@ use App\Http\Controllers\ComputerController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::apiResource('computers', ComputerController::class);
